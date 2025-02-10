@@ -1,0 +1,81 @@
+{
+    "backend": {
+      "name": "github",
+      "repo": "https://github.com/ishan501/sveltekit-test",
+      "branch": "main"
+    },
+    "media_folder": "static/uploads",
+    "public_folder": "/uploads",
+    "collections": [
+      {
+        "name": "product_list",
+        "label": "Product List",
+        "label_singular": "Product List",
+        "delete": false,
+        "files": [
+          {
+            "label": "Products",
+            "name": "products",
+            "file": "content/products.json",
+            "format": "json",
+            "fields": [
+              {
+                "label": "Products",
+                "name": "products",
+                "widget": "list",
+                "summary": "{{fields.title}}",
+                "fields": [
+                  { "name": "id", "label": "ID", "widget": "string", "required": true },
+                  { "name": "title", "label": "Title", "widget": "string", "required": true },
+                  { "name": "description", "label": "Description", "widget": "text" },
+                  { "name": "image", "label": "Product Image", "widget": "image" },
+                  { "name": "ctaText", "label": "CTA Button Text", "widget": "string" },
+                  { "name": "ctaLink", "label": "CTA Link", "widget": "string" }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "products",
+        "label": "Individual Products",
+        "folder": "content/products",
+        "create": true,
+        "preview_path": "/product/{{slug}}",
+        "format": "json",
+        "identifier_field": "title",
+        "slug": "{{slug}}",
+        "path": "{{slug}}",
+        "allow_add": true,
+        "collapsed": false,
+        "sortable": true,
+        "fields": [
+          { "name": "title", "label": "Product Title", "widget": "string", "required": true },
+          { "name": "slug", "label": "Slug", "widget": "string", "required": true },
+          {
+            "label": "Hero Section",
+            "name": "hero",
+            "widget": "object",
+            "fields": [
+              { "name": "description", "label": "Product Description", "widget": "text" },
+              { "name": "image", "label": "Hero Image", "widget": "image" },
+              { "name": "primary-color", "label": "Primary Color", "widget": "color" },
+              {
+                "label": "Call-to-Actions (CTAs)",
+                "name": "ctas",
+                "widget": "list",
+                "fields": [
+                  { "name": "id", "label": "CTA ID", "widget": "number" },
+                  { "name": "title", "label": "CTA Title", "widget": "string" },
+                  { "name": "link", "label": "CTA Link", "widget": "string" },
+                  { "name": "isPrimary", "label": "Primary Button?", "widget": "boolean" }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+  

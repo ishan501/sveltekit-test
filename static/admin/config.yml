@@ -1,45 +1,77 @@
 backend:
   name: github
-  repo: https://github.com/ishan501/sveltekit-test
-  branch: main  # Change to your Git branch if different
+  repo: "https://github.com/ishan501/sveltekit-test"
+  branch: main
 
 media_folder: "static/uploads"
 public_folder: "/uploads"
 
 collections:
-  - name: "product-list"
-    label: "Product List"
-    file: "content/products.json"
-    description: "Manage the list of all products"
+  - name: "home"
+    label: "Home Content"
+    label_singular: "Home Content"
+    delete: false
+    file: "content/home.json"  # ✅ Ensure correct path to JSON file
     format: "json"
     fields:
       - label: "Products"
         name: "products"
-        widget: "list"
+        widget: "object"
         fields:
-          - { name: "id", label: "ID", widget: "number" }
-          - { name: "title", label: "Title", widget: "string" }
+          - { name: "title", label: "Title", widget: "string", required: true }
           - { name: "description", label: "Description", widget: "text" }
-          - { name: "image", label: "Image", widget: "image" }
-          - { name: "ctaText", label: "CTA Text", widget: "string" }
-          - { name: "ctaLink", label: "CTA Link", widget: "string" }
+          - { name: "bgColor", label: "Background Color", widget: "color" }
+          - label: "Product List"
+            name: "data"
+            widget: "list"
+            fields:
+              - { name: "id", label: "ID", widget: "number", required: true }
+              - { name: "title", label: "Product Title", widget: "string", required: true }
+              - { name: "description", label: "Product Description", widget: "text" }
+              - { name: "image", label: "Product Image", widget: "image" }
+              - { name: "ctaText", label: "CTA Button Text", widget: "string" }
+              - { name: "ctaLink", label: "CTA Link", widget: "string" }
 
+      - label: "Services"
+        name: "services"
+        widget: "object"
+        fields:
+          - { name: "label", label: "Label", widget: "string", required: true }
+          - { name: "title", label: "Title", widget: "string", required: true }
+          - { name: "description", label: "Description", widget: "text" }
+          - { name: "bgColor", label: "Background Color", widget: "color" }
+          - label: "Services List"
+            name: "data"
+            widget: "list"
+            fields:
+              - { name: "id", label: "ID", widget: "number", required: true }
+              - { name: "title", label: "Service Title", widget: "string", required: true }
+              - { name: "description", label: "Service Description", widget: "text" }
+              - { name: "image", label: "Service Image", widget: "image" }
+
+  # Individual Product Pages (Multiple JSON Files)
   - name: "products"
-    label: "Products (Individual Pages)"
+    label: "Individual Products"
     folder: "content/products"
     create: true
-    slug: "{{title | slugify}}"  # Creates file names like `jupitermeet.json`
+    preview_path: "/product/{{slug}}"  # ✅ Enables live preview
     format: "json"
+    identifier_field: "title"
+    slug: "{{slug}}"  # ✅ Correctly uses the slug field for the filename
+    path: "{{slug}}"  # ✅ Ensures filename matches slug
+    allow_add: true
+    collapsed: false
+    sortable: true  # ✅ Enables drag & drop sorting
     fields:
+      - { name: "title", label: "Product Title", widget: "string", required: true }
+      - { name: "slug", label: "Slug", widget: "string", required: true }  # ✅ Must be at the root level
       - label: "Hero Section"
         name: "hero"
         widget: "object"
         fields:
-          - { name: "title", label: "Product Title", widget: "string" }
           - { name: "description", label: "Product Description", widget: "text" }
           - { name: "image", label: "Hero Image", widget: "image" }
           - { name: "primary-color", label: "Primary Color", widget: "color" }
-
           - label: "Call-to-Actions (CTAs)"
             name: "ctas"
             widget: "list"

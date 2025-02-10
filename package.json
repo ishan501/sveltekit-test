@@ -17,7 +17,6 @@
 		"vite": "^6.0.0"
 	},
 	"dependencies": {
-		"@sveltia/cms": "^0.56.5",
-		"decap-cms-app": "^3.6.1"
+		"@sveltia/cms": "^0.56.5"
 	}
 }

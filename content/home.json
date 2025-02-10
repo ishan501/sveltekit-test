@@ -1,0 +1,57 @@
+{
+  "products": {
+    "title": "Our Ready-to-Use, WebRTC Solutions",
+    "description": "try out our products",
+    "bgColor": "#ffffff",
+    "data": [
+      {
+        "id": 1,
+        "title": "JupiterMeet",
+        "description": "my sample desc",
+        "image": "jupitermeet.png",
+        "ctaText": "Learn more",
+        "ctaLink": "https://example.com"
+      },
+      {
+        "id": 2,
+        "title": "JupiterMeet Pro",
+        "description": "sample description",
+        "image": "jupitermeet_pro.png",
+        "ctaText": "Learn more",
+        "ctaLink": "https://example.com/pro"
+      }
+    ]
+  },
+  "services": {
+    "label": "Services",
+    "title": "Our services ",
+    "description": "sample description",
+    "bgColor": "#e9ecef",
+    "data": [
+      {
+        "id": 1,
+        "title": "development",
+        "description": "we provide development services",
+        "image": "development.png"
+      },
+      {
+        "id": 2,
+        "title": "installation",
+        "description": "we provide installation services",
+        "image": "installation.png"
+      },
+      {
+        "id": 3,
+        "title": "consultation",
+        "description": "we provide consultation services",
+        "image": "consultation.png"
+      },
+      {
+        "id": 4,
+        "title": "customization",
+        "description": "we provide customization services",
+        "image": "customization.png"
+      }
+    ]
+  }
+}

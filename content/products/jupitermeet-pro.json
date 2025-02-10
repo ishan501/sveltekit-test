@@ -1,22 +1,26 @@
 {
+  "title": "JupiterMeet Pro",
+  "slug": "jupitermeet-pro",
   "hero": {
-    "title": "JupiterMeet Pro",
     "description": "This is our pro version!!!!!",
     "image": "https://th.bing.com/th/id/OIP.i_r1HV7ZqLnIv3U9rpuFTQHaFj?w=234&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
-    "primaryColor": "#555555",
+    "primary-color": "#c01616",
     "ctas": [
       {
-        "id": "1",
+        "id": 1,
         "title": "Buy Now",
         "link": "https://example.com/buy",
         "isPrimary": true
       },
       {
-        "id": "2",
+        "id": 2,
         "title": "View Demo",
         "link": "https://example.com/demo",
         "isPrimary": false
       }
-    ]
+    ],
+    "title": "JupiterMeet Pro",
+    "slug": "jupitermeet-pro",
+    "primaryColor": "#555555"
   }
 }
